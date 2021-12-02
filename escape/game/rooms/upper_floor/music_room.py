@@ -9,3 +9,4 @@ class MusicRoom(Room):
         self._room_book_2 = room.create_scene_string(r"escape\game\rooms\upper_floor\upper_floor_text\music_room_book_2.txt")
         self._adjacent_rooms = ["hall_2"]
         self._has_visted_room = False
+        self._actions = ["EXIT", "DESK"]

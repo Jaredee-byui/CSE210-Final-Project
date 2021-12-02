@@ -1,4 +1,7 @@
 
 class InputService:
-    def execute(input_string):
-        return input_string.upper()
+    def format_input(input_string):
+        try:
+            return input_string.upper()
+        except:
+            return False

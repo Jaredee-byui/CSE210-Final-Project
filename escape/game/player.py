@@ -31,4 +31,7 @@ class Player:
     def set_current_room(self, room):
         self._previous_room = self._current_room
         self._current_room = room
+
+    def return_previous_room(self):
+        self._current_room, self._previous_room = self._previous_room, self._current_room
         

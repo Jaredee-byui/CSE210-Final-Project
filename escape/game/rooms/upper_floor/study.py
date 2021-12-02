@@ -8,3 +8,4 @@ class Study(Room):
         self._room_book_1 = room.create_scene_string(r"escape\game\rooms\upper_floor\upper_floor_text\search_desk.txt")
         self._adjacent_rooms = ["hall_1"]
         self._has_visted_room = False
+        self._actions = ["EXIT", "DESK"]
