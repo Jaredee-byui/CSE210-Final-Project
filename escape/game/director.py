@@ -13,8 +13,8 @@ class Director:
         
 
     def start_game(self):
-        # starting_room = self._rooms[4]
-        self._player.set_current_room(4)
+        starting_room = 4
+        self._player.set_current_room(starting_room)
 
         while self._keep_playing:
             self.play_room_intro()
@@ -23,9 +23,6 @@ class Director:
 
 
     def play_room_intro(self):
-        
-        # print(type(self._player.get_current_location()))
-        # print(self._rooms[self._player.get_current_location()])
         print(f"\n{self._rooms[self._player.get_current_location()].get_room_intro()}")
         
 
