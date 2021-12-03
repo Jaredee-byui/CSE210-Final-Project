@@ -79,7 +79,7 @@ music_room_adjacent = ["hall_2"]
 music_room_actions = ["EXIT", "DESK"]
 
 study_intro = r"escape\game\rooms\upper_floor\upper_floor_text\study_intro_1.txt"
-study_desk = r"escape\game\rooms\upper_floor\upper_floor_text\search_desk.txt"
+study_desk = r"escape\game\rooms\upper_floor\upper_floor_text\study_search_desk.txt"
 study_adjacent = ["hall_1"]
 study_actions = ["EXIT", "DESK"]
 

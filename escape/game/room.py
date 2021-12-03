@@ -11,7 +11,7 @@ class Room:
     def get_adjacent_rooms(self):
         return self._adjacent_rooms
 
-    def get_unqiue_text(self):
+    def get_unique_text(self):
         return self._unique_text
     
     def get_room_intro(self):
@@ -30,9 +30,12 @@ class Room:
         self._has_visted_room = status
 
     def create_scene_string(self, file_name):
-        with open(file_name,"rt") as work_file:
-            work_string = work_file.read()
-        return work_string
+        if file_name == " ":
+            pass
+        else:
+            with open(file_name,"rt") as work_file:
+                work_string = work_file.read()
+            return work_string
 
     def get_actions(self):
         return self._actions
