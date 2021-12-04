@@ -37,7 +37,6 @@ class Director:
                 invalid_input = True
         
 
-
     def update_game(self):
         if self._game_logic.handle_logic(self._rooms, self._player, self._user_input) == False:
             self._keep_playing = False

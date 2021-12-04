@@ -59,6 +59,11 @@ class GameLogic:
     def handle_den(self):
         if self._user_input.upper() == "EXIT":
             self._player.return_previous_room()
+        elif self._user_input.upper() == "BOOK":
+            if self._player.get_item_value("magnifying glass"):
+                print(f"\n{self._rooms[self._player.get_current_location()].get_unique_text()}")
+            else:
+                print(f"\nYou can't seem to make out the text, its too small! ")
         else:
             print(f"\nI'm sorry I don't understand. ")
 
