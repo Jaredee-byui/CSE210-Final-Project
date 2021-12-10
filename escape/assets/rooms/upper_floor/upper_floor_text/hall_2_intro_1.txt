@@ -1,4 +1,2 @@
-TEST HALL 2 INTRO
-
-OPTIONS:
-HALLWAY 1, MUSIC ROOM, MASTER BEDROOM
+	You stand in another hallway. To your left is the MASTER BEDROOM.
+to your right is the MUSIC ROOM. Behind you is the HALLWAY you came from.

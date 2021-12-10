@@ -1,5 +1,3 @@
-TEST HALL 1 INTRO
-
-OPTIONS:
-LANDING, LEFT BEDROOM, RIGHT BEDROOM,
-STUDY, HALL BATHROOM, HALLWAY 2
+	You stand in a well decorated hallway. To your left is a door leading
+to a STUDY and a LEFT BEDROOM. To your right is a BATHROOM and the
+RIGHT BEDROOM. Behind you is the LANDING. Ahead is another HALLWAY.

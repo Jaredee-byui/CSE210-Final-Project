@@ -1,13 +1,34 @@
 from game.room import Room
 from game.player import Player
+from game import constants
 
 class GameLogic:
+    '''
+    Handles all logic related to user choice in game.
+
+    Sterotype: service provider
+
+    attributes:
+    none 
+    '''
     def __init__(self):
+        """The class constructor.
+        
+        Args:
+            self (GameLogic): an instance of GameLogic.
+            """
         pass
         
 
     def handle_logic(self, rooms, player, user_input):
+        '''
+        The first layer of logic in the game, depending on current location, the respective secondary function is called.
 
+        Args:
+            rooms
+            player
+            user_input
+        '''
         self._rooms = rooms
         self._player = player
         self._user_input = user_input
@@ -50,14 +71,25 @@ class GameLogic:
         elif self._player.get_current_location() == 17:
             self.handle_study()
 
+
     def handle_cellar(self):
+        '''
+        handles all logic related to the cellar
+        '''
         if self._user_input.upper() == "FORGIVE":
             print(f"\n{self._rooms[self._player.get_current_location()].get_ending_1()}")
+        elif self._user_input.upper() == "STRANGE DOOR":
+            
+            print(f"\n{self._rooms[self._player.get_current_location()].get_unique_text()}")
         else:
             print(f"\n{self._rooms[self._player.get_current_location()].get_ending_2()}")
     
     def handle_den(self):
+        '''
+        handles all logic related to the den
+        '''
         if self._user_input.upper() == "EXIT":
+            
             self._player.return_previous_room()
         elif self._user_input.upper() == "BOOK":
             if self._player.get_item_value("magnifying glass"):
@@ -68,15 +100,24 @@ class GameLogic:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_dining_room(self):
+        '''
+        handles dining room logic
+        '''
         if self._user_input.upper() == "FOYER":
+            
             self._player.set_current_room(4)
         elif self._user_input.upper() == "KITCHEN":
+            
             self._player.set_current_room(5)
         else:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_foyer_closet(self):
+        '''
+        foyer closet logic
+        '''
         if self._user_input.upper() == "EXIT":
+            
             self._player.return_previous_room()
         elif self._user_input.upper() == "UMBRELLA":
             self._player.add_item_inventory("umbrella", True)
@@ -85,20 +126,27 @@ class GameLogic:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_foyer(self):
+        '''
+        foyer logic
+        '''
         if self._user_input.upper() == "EXIT":
             self._player.return_previous_room()
         elif self._user_input.upper() == "DOOR":
             print(f"\n{self._rooms[self._player.get_current_location()].get_unique_text()}")
         elif self._user_input.upper() == "CELLAR":
             if self._player.get_item_value("key_cellar"):
+                
                 self._player.set_current_room(0)
             else:
                 print(f"\nYou lack the required item(s). ")
         elif self._user_input.upper() == "DEN":
+            
             self._player.set_current_room(1)
         elif self._user_input.upper() == "DINING ROOM":
+            
             self._player.set_current_room(2)
         elif self._user_input.upper() == "CLOSET":
+            
             self._player.set_current_room(3)
         elif self._user_input.upper() == "STAIRCASE":
             self._player.set_current_room(7)
@@ -106,6 +154,9 @@ class GameLogic:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_kitchen(self):
+        '''
+        kitchen logic
+        '''
         if self._user_input.upper() == "DINING ROOM":
             self._player.set_current_room(2)
         elif self._user_input.upper() == "PANTRY":
@@ -117,6 +168,9 @@ class GameLogic:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_pantry(self):
+        '''
+        pantry logic
+        '''
         if self._user_input.upper() == "EXIT":
             self._player.return_previous_room()
         else:
@@ -143,7 +197,7 @@ class GameLogic:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_bedroom_2(self):
-        # ["EXIT", "CAGE"]
+        
         if self._user_input.upper() == "EXIT":
             self._player.return_previous_room()
         elif self._user_input.upper() == "CAGE":
@@ -156,7 +210,7 @@ class GameLogic:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_hall_1(self):
-        # ["BATHROOM", "LEFT BEDROOM", "RIGHT BEDROOM", "STUDY", "EXIT", "HALLWAY"]
+        
         if self._user_input.upper() == "LANDING":
             self._player.set_current_room(13)
         elif self._user_input.upper() == "BATHROOM":
@@ -173,7 +227,7 @@ class GameLogic:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_hall_2(self):
-        # ["MUSIC ROOM", "MASTER BEDROOM", "EXIT"]
+        
         if self._user_input.upper() == "HALLWAY":
             self._player.set_current_room(11)
         elif self._user_input.upper() == "MUSIC ROOM":
@@ -184,7 +238,7 @@ class GameLogic:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_landing(self):
-        # ["EXIT", "HALLWAY"]
+      
         if self._user_input.upper() == "STAIRCASE":
             self._player.set_current_room(7)
         elif self._user_input.upper() == "HALLWAY":
@@ -199,7 +253,7 @@ class GameLogic:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_master_bed(self):
-        # ["EXIT", "MASTER BATH", "KEY"]
+        
         if self._user_input.upper() == "HALLWAY":
             self._player.set_current_room(12)
         elif self._user_input.upper() == "MASTER BATH":
@@ -214,16 +268,17 @@ class GameLogic:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_music_room(self):
-        # ["EXIT", "DESK"]
+       
         if self._user_input.upper() == "EXIT":
             self._player.return_previous_room()
         elif self._user_input.upper() == "DESK":
             print(f"\n{self._rooms[self._player.get_current_location()].get_unique_text()}")
+            
         else:
             print(f"\nI'm sorry I don't understand. ")
 
     def handle_study(self):
-        # ["EXIT", "DESK"]
+        
         if self._user_input.upper() == "EXIT":
             self._player.return_previous_room()
         elif self._user_input.upper() == "DESK":
